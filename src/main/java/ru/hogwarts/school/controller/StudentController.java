@@ -123,6 +123,9 @@ public class StudentController {
     public void print() {
         studentService.print();
     }
-
+    @GetMapping("/threads/sync")
+    public void printSync() {
+        studentService.printSync();
+    }
 }
 
