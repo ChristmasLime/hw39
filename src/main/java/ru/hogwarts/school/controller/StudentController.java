@@ -110,7 +110,7 @@ public class StudentController {
     }
 
     @GetMapping("/names-by")
-        public List<String>getBySymbol(@RequestParam char symbol) {
+    public List<String> getBySymbol(@RequestParam char symbol) {
         return studentService.getNames(symbol);
     }
 
@@ -119,6 +119,10 @@ public class StudentController {
         return studentService.getAveregeAge();
     }
 
+    @GetMapping("/threads/async")
+    public void print() {
+        studentService.print();
+    }
 
 }
 

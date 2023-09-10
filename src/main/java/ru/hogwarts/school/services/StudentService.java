@@ -137,6 +137,25 @@ public class StudentService {
 
     }
 
+    public void print () {
+        List<Student> all = studentRepository.findAll();
+        System.out.println("Выведены в основном потоке :");
+        System.out.println(all.get(0).getName());
+        System.out.println(all.get(1).getName());
+
+        new Thread(()->{
+            System.out.println("Выведены в первом  параллельном потоке :");
+            System.out.println(all.get(2).getName());
+            System.out.println(all.get(3).getName());
+        }).start();
+
+        new Thread(()->{
+            System.out.println("Выведены во втором  параллельном потоке :");
+            System.out.println(all.get(4).getName());
+            System.out.println(all.get(5).getName());
+        }).start();
+    }
+
 
 }
 
